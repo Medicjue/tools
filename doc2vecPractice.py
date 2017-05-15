@@ -39,5 +39,11 @@ for epoch in range(200):
     model.min_alpha = model.alpha  # fix the learning rate, no decay
     
 model.save('doc2vecPractice.model')
-print(model.docvecs.most_similar(["SENT_5"]))
-print(model.docvecs.most_similar(["SENT_2"]))
+#print(model.docvecs.most_similar(["SENT_5"]))
+#print(model.docvecs.most_similar(["SENT_2"]))
+
+
+newSentenceVector = model.infer_vector("and round and round".split())
+r = model.docvecs.most_similar([newSentenceVector])
+print(r)
+## weird...
